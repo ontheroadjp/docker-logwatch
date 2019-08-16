@@ -4,9 +4,15 @@ This is a Docker container running Logwatch
 
 Getting Start
 1. Clone repository.
-2. Build Container
+
 ```bash
-$ docker build -t lw .
+$ git clone https://github.com/ontheroadjp/docker-logwatch
+```
+
+2. Build Container
+
+```bash
+$ docker build -t logwatch .
 ```
 
 3. Run script
@@ -16,7 +22,7 @@ $ sh logwatch.sh
 
 or
 
-# for crontab. this mean logwatch output log report once at a minuts.
+# for crontab. this mean logwatch output log report every minute.
 $ sh logwatch_cron.sh
 ```
 
