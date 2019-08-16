@@ -1,0 +1,23 @@
+version: '2'
+services:
+    logwatch:
+        image: lw
+        container_name: lw
+        hostname: ${HOSTNAME}
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - ./conf/logwatch.conf:/etc/logwatch/conf/logwatch.conf:ro
+            - /var/log:/var/log:ro
+        command: logwatch
+        networks:
+            logwatch_net:
+                ipv4_address: 172.16.238.4
+
+networks:
+    logwatch_net:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.16.238.0/24
+                  gateway: 172.16.238.1
